@@ -14,7 +14,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="min-h-screen bg-amber-50/40 dark:bg-zinc-950 flex items-center justify-center px-4 py-14 transition-colors duration-500">
+  <div class="min-h-screen bg-amber-50/40 dark:bg-zinc-950 flex items-center justify-center px-4 py-14 transition-colors duration-500 overflow-hidden">
     <div class="relative w-full max-w-2xl">
       <div class="absolute -top-10 -right-10 w-64 h-64 rounded-full bg-amber-200/30 dark:bg-amber-900/10 blur-3xl pointer-events-none" />
       <div class="absolute -bottom-12 -left-10 w-72 h-72 rounded-full bg-orange-100/50 dark:bg-orange-900/10 blur-3xl pointer-events-none" />
