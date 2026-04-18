@@ -26,7 +26,7 @@ watch(() => route.fullPath, () => {
 </script>
 
 <template>
-  <div class="nunito-font min-h-screen flex flex-col">
+  <div class="bg-amber-50/40 dark:bg-zinc-950 nunito-font min-h-screen flex flex-col">
     <UHeader v-model:open="open" :items="items" sticky>
       <template #title>
         <AppLogo class="h-12 sm:h-16 w-auto" />

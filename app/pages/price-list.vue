@@ -72,7 +72,7 @@ useSeoMeta({
             size="xl"
             class="rounded-2xl"
             :ui="{ 
-              base: 'rounded-2xl border-2 border-amber-100 hover:border-amber-300 dark:border-amber-900/30 dark:hover:border-amber-700 bg-white dark:bg-zinc-900 ring-0 h-14 font-semibold shadow-lg shadow-amber-200/20 dark:shadow-none transition-all'
+              base: 'rounded-2xl bg-white dark:bg-zinc-900 ring-0 h-14 font-semibold shadow-lg shadow-amber-200/20 dark:shadow-none transition-all'
             }"
           >
             <template #trailing>
@@ -90,7 +90,7 @@ useSeoMeta({
           body: 'relative z-10 px-4 py-6 sm:px-8 sm:py-8'
         }"
       >
-        <div class="absolute inset-0 rounded-[3rem] border-[5px] border-amber-200 dark:border-amber-900/30 pointer-events-none" />
+        <div class="absolute inset-0 rounded-[3rem] pointer-events-none" />
 
         <div v-if="categories.length === 0" class="py-20 text-center">
           <UIcon name="i-ph-smiley-blank-duotone" class="w-16 h-16 text-zinc-300 mb-4" />
@@ -148,13 +148,6 @@ useSeoMeta({
           </div>
         </div>
       </UCard>
-      
-      <div class="mt-12 text-center">
-        <p class="text-zinc-400 text-sm font-bold flex items-center justify-center gap-2">
-          <UIcon name="i-ph-info-duotone" />
-          Bulk order? Contact us for special merchant pricing.
-        </p>
-      </div>
     </div>
   </div>
 </template>
