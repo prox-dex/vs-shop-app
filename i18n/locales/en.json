@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Home",
+    "price_list": "Price List",
+    "contact_us": "Contact Us",
+    "our_story": "Our Story"
+  },
+  "home": {
+    "title": "Vuthy & Somphors",
+    "subtitle": "The cutest little cheese shop in town! Handcrafted goodness made with love, smiles, and the finest ingredients.",
+    "explore_price_list": "Explore Our Price List",
+    "our_story": "Our Story",
+    "seo_title": "Home",
+    "seo_description": "Welcome to Vuthy & Somphors - your destination for handcrafted fresh cheese, yogurts, and premium Italian delicacies in Siem Reap."
+  },
+  "price_list": {
+    "title": "Price List",
+    "subtitle": "Fresh handcrafted Italian foods and delicacies. Prices updated as of July 11, 2024.",
+    "search_placeholder": "Search for an item...",
+    "no_items": "No items found matching your search.",
+    "bulk_order": "Bulk order? Contact us for special merchant pricing.",
+    "columns": {
+      "item_name": "Item Name",
+      "packing": "Packing",
+      "as": "As",
+      "price": "Price"
+    },
+    "seo_title": "Price List",
+    "seo_description": "Explore our artisan Italian food price list. From fresh Burrata and Mozzarella to gourmet meats and yogurts, find all our handcrafted delicacies and prices."
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "We'd love to hear from you! Reach out to us through any of these channels.",
+    "phone": "Phone",
+    "telegram": "Telegram",
+    "location": "Location",
+    "seo_title": "Contact Us",
+    "seo_description": "Get in touch with Vuthy & Somphors in Siem Reap. Find our location, phone number, and Telegram for inquiries and fresh handcrafted food orders."
+  },
+  "footer": {
+    "built_with": "Built with Nuxt UI"
+  }
+}

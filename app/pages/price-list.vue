@@ -27,6 +27,8 @@ const products = [
   { category: 'Meats', name: 'Smoke Chicken Breast', packing: '1 Kg', as: 'Kg', price: 13.90 }
 ]
 
+const { t } = useI18n()
+
 const searchQuery = ref('')
 
 const filteredProducts = computed(() => {
@@ -42,6 +44,10 @@ const categories = computed(() => {
 const getProductsByCategory = (cat: string) => {
   return filteredProducts.value.filter(p => p.category === cat)
 }
+useSeoMeta({
+  title: t('price_list.seo_title'),
+  description: t('price_list.seo_description')
+})
 </script>
 
 <template>
@@ -52,17 +58,17 @@ const getProductsByCategory = (cat: string) => {
 
       <div class="mb-12 text-center relative z-10">
         <h1 class="text-5xl sm:text-6xl font-black text-amber-900 dark:text-amber-50 tracking-tight mb-4">
-          Price List
+          {{ t('price_list.title') }}
         </h1>
         <p class="text-amber-800/60 dark:text-zinc-400 font-semibold max-w-lg mx-auto mb-8">
-          Fresh handcrafted Italian foods and delicacies. Prices updated as of July 11, 2024.
+          {{ t('price_list.subtitle') }}
         </p>
         
         <div class="max-w-md mx-auto relative group">
           <UInput
             v-model="searchQuery"
             icon="i-ph-magnifying-glass-duotone"
-            placeholder="Search for an item..."
+            :placeholder="t('price_list.search_placeholder')"
             size="xl"
             class="rounded-2xl"
             :ui="{ 
@@ -88,7 +94,7 @@ const getProductsByCategory = (cat: string) => {
 
         <div v-if="categories.length === 0" class="py-20 text-center">
           <UIcon name="i-ph-smiley-blank-duotone" class="w-16 h-16 text-zinc-300 mb-4" />
-          <p class="text-zinc-500 font-bold">No items found matching your search.</p>
+          <p class="text-zinc-500 font-bold">{{ t('price_list.no_items') }}</p>
         </div>
 
         <div v-for="cat in categories" :key="cat" class="mb-12 last:mb-0">
@@ -97,37 +103,42 @@ const getProductsByCategory = (cat: string) => {
              <div class="flex-1 h-px bg-amber-100 dark:bg-zinc-800 ml-4 opacity-50" />
           </div>
 
-          <div class="overflow-x-auto">
+          <div class="overflow-x-auto sm:overflow-visible">
             <table class="w-full text-left">
               <thead>
-                <tr class="text-amber-800/40 dark:text-zinc-600 text-xs font-black uppercase tracking-widest border-b border-amber-50 dark:border-zinc-800/50">
-                  <th class="px-8 py-4">Item Name</th>
-                  <th class="px-8 py-4">Packing</th>
-                  <th class="px-8 py-4">As</th>
-                  <th class="px-8 py-4 text-right">Price</th>
+                <tr class="text-amber-800/40 dark:text-zinc-600 text-[10px] sm:text-xs font-black uppercase tracking-widest border-b border-amber-100/50 dark:border-zinc-800/50">
+                  <th class="px-4 sm:px-8 py-4">{{ t('price_list.columns.item_name') }}</th>
+                  <th class="hidden sm:table-cell px-8 py-4">{{ t('price_list.columns.packing') }}</th>
+                  <th class="hidden md:table-cell px-8 py-4">{{ t('price_list.columns.as') }}</th>
+                  <th class="px-4 sm:px-8 py-4 text-right">{{ t('price_list.columns.price') }}</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-amber-50 dark:divide-zinc-800/50">
+              <tbody class="divide-y divide-amber-50/50 dark:divide-zinc-800/50">
                 <tr 
                   v-for="product in getProductsByCategory(cat)" 
                   :key="product.name"
                   class="group hover:bg-amber-50/30 dark:hover:bg-amber-900/5 transition-colors"
                 >
-                  <td class="px-8 py-5">
-                    <span class="font-bold text-amber-900 dark:text-amber-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
-                      {{ product.name }}
-                    </span>
+                  <td class="px-4 sm:px-8 py-4 sm:py-5">
+                    <div class="flex flex-col">
+                      <span class="font-bold text-amber-900 dark:text-amber-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors text-sm sm:text-base">
+                        {{ product.name }}
+                      </span>
+                      <span class="sm:hidden text-[10px] font-bold text-amber-800/40 dark:text-zinc-500 uppercase tracking-tighter mt-0.5">
+                        {{ product.packing }} • {{ product.as }}
+                      </span>
+                    </div>
                   </td>
-                  <td class="px-8 py-5">
-                    <span class="text-amber-800/60 dark:text-zinc-500 font-semibold">{{ product.packing }}</span>
+                  <td class="hidden sm:table-cell px-8 py-5">
+                    <span class="text-amber-800/60 dark:text-zinc-500 font-semibold text-sm">{{ product.packing }}</span>
                   </td>
-                  <td class="px-8 py-5">
-                    <UBadge variant="soft" color="neutral" class="rounded-full font-bold px-3 py-1 bg-amber-100 dark:bg-zinc-800 text-amber-700 dark:text-zinc-400 border-0">
+                  <td class="hidden md:table-cell px-8 py-5">
+                    <UBadge variant="soft" color="neutral" class="rounded-full font-bold px-3 py-1 bg-amber-100 dark:bg-zinc-800 text-amber-700 dark:text-zinc-400 border-0 text-[10px]">
                       {{ product.as }}
                     </UBadge>
                   </td>
-                  <td class="px-8 py-5 text-right">
-                    <span class="text-lg font-black text-amber-600 dark:text-amber-500">
+                  <td class="px-4 sm:px-8 py-4 sm:py-5 text-right">
+                    <span class="text-base sm:text-lg font-black text-amber-600 dark:text-amber-500">
                       ${{ product.price.toFixed(2) }}
                     </span>
                   </td>

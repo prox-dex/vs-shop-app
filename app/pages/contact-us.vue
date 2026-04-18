@@ -1,9 +1,16 @@
 <script setup lang="ts">
-const contactInfo = [
-  { icon: 'i-ph-phone-duotone', label: 'Phone', value: '+855 12 345 678', to: 'tel:+85512345678' },
-  { icon: 'i-ph-paper-plane-tilt-duotone', label: 'Telegram', value: '@roast_bean_by_prox_dex', to: 'https://t.me/roast_bean_by_prox_dex' },
-  { icon: 'i-ph-map-pin-duotone', label: 'Location', value: 'Siem Reap, Cambodia', to: 'https://maps.app.goo.gl/bSdYLXNhtog8MbbX7' }
-]
+const { t } = useI18n()
+
+const contactInfo = computed(() => [
+  { icon: 'i-ph-phone-duotone', label: t('contact.phone'), value: '+855 12 345 678', to: 'tel:+85512345678' },
+  { icon: 'i-ph-paper-plane-tilt-duotone', label: t('contact.telegram'), value: '@roast_bean_by_prox_dex', to: 'https://t.me/roast_bean_by_prox_dex' },
+  { icon: 'i-ph-map-pin-duotone', label: t('contact.location'), value: 'Siem Reap, Cambodia', to: 'https://maps.app.goo.gl/bSdYLXNhtog8MbbX7' }
+])
+
+useSeoMeta({
+  title: t('contact.seo_title'),
+  description: t('contact.seo_description')
+})
 </script>
 
 <template>
@@ -24,10 +31,10 @@ const contactInfo = [
           
           <div class="mb-10 text-center">
             <h1 class="text-4xl sm:text-5xl font-black text-amber-900 dark:text-amber-50 tracking-tight mb-3">
-              Get in Touch
+              {{ t('contact.title') }}
             </h1>
             <p class="text-amber-800/60 dark:text-zinc-400 font-semibold max-w-sm mx-auto">
-              We'd love to hear from you! Reach out to us through any of these channels.
+              {{ t('contact.subtitle') }}
             </p>
           </div>
 
