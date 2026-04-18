@@ -13,7 +13,15 @@ const items = computed(() => [
 </script>
 
 <template>
-  <UDropdownMenu :items="items" :content="{ align: 'end' }">
+  <UDropdownMenu 
+    :items="items" 
+    :content="{ 
+      align: 'end',
+      sideOffset: 8
+    }"
+    :ui="{ content: 'min-w-[120px]' }"
+    portal
+  >
     <UButton
       color="neutral"
       variant="ghost"

@@ -20,15 +20,14 @@ const items = computed<NavigationMenuItem[]>(() => [
   }
 ])
 
-// Close drawer on navigation
 watch(() => route.fullPath, () => {
   open.value = false
 })
 </script>
 
 <template>
-  <div class="nunito-font">
-    <UHeader v-model:open="open" :items="items">
+  <div class="nunito-font min-h-screen overflow-x-hidden flex flex-col">
+    <UHeader v-model:open="open" :items="items" :ui="{ container: 'max-w-7xl px-4 sm:px-6 lg:px-8' }">
       <template #title>
         <AppLogo class="h-12 sm:h-16 w-auto" />
       </template>
@@ -59,8 +58,10 @@ watch(() => route.fullPath, () => {
       </template>
     </UHeader>
 
-    <UMain>
-      <slot />
+    <UMain class="flex-1">
+      <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+        <slot />
+      </div>
     </UMain>
   </div>
 </template>

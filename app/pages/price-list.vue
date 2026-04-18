@@ -51,10 +51,10 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="min-h-screen bg-amber-50/40 dark:bg-zinc-950 flex flex-col items-center px-4 py-14 transition-colors duration-500">
-    <div class="relative w-full max-w-5xl">
-      <div class="absolute -top-10 -right-10 w-64 h-64 rounded-full bg-amber-200/30 dark:bg-amber-900/10 blur-3xl pointer-events-none" />
-      <div class="absolute -bottom-12 -left-10 w-72 h-72 rounded-full bg-orange-100/50 dark:bg-orange-900/10 blur-3xl pointer-events-none" />
+  <div class="min-h-screen bg-amber-50/40 dark:bg-zinc-950 flex flex-col items-center px-4 py-14 transition-colors duration-500 overflow-hidden">
+    <div class="relative w-full max-w-5xl mx-auto">
+      <div class="absolute -top-10 -right-10 w-48 sm:w-64 h-48 sm:h-64 rounded-full bg-amber-200/30 dark:bg-amber-900/10 blur-3xl pointer-events-none" />
+      <div class="absolute -bottom-12 -left-10 w-56 sm:w-72 h-56 sm:h-72 rounded-full bg-orange-100/50 dark:bg-orange-900/10 blur-3xl pointer-events-none" />
 
       <div class="mb-12 text-center relative z-10">
         <h1 class="text-5xl sm:text-6xl font-black text-amber-900 dark:text-amber-50 tracking-tight mb-4">
@@ -86,8 +86,8 @@ useSeoMeta({
 
       <UCard
         :ui="{
-          root: 'overflow-visible bg-white dark:bg-zinc-900 rounded-[3rem] ring-0 dark:ring-1 dark:ring-zinc-800 divide-y-0 shadow-2xl shadow-amber-200/50 dark:shadow-none',
-          body: 'relative z-10 px-0 py-6 sm:px-4 sm:py-8'
+          root: 'overflow-visible bg-white dark:bg-zinc-900 rounded-[2.5rem] sm:rounded-[3rem] ring-0 dark:ring-1 dark:ring-zinc-800 divide-y-0 shadow-2xl shadow-amber-200/50 dark:shadow-none',
+          body: 'relative z-10 px-4 py-6 sm:px-8 sm:py-8'
         }"
       >
         <div class="absolute inset-0 rounded-[3rem] border-[5px] border-amber-200 dark:border-amber-900/30 pointer-events-none" />
